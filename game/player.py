@@ -2,7 +2,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 import json
 
-SAVE_DIR=Path.home()/".shadow_terminal"
+# Android/Termux: lưu dữ liệu trong thư mục con của Downloads để người dùng
+# dễ sao lưu/chuyển dữ liệu. Có fallback về HOME nếu Downloads chưa tồn tại.
+DOWNLOADS=Path.home()/"storage"/"downloads"
+if not DOWNLOADS.exists():
+    DOWNLOADS=Path.home()/"downloads"
+SAVE_DIR=DOWNLOADS/"ShadowTerminal"
 
 @dataclass
 class Player:
