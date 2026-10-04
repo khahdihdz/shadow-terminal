@@ -79,7 +79,7 @@ class Game:
         while self.player and self.player.hp>0:
             clear(); title()
             p=self.player
-            print(f"{BOLD}{p.name}{RESET} | Cấp {p.level} | HP {p.hp}/{p.max_hp} | NL {p.energy}/{p.max_energy} | 💰 {p.money}")
+            print(f"{BOLD}{p.name}{RESET} | Cấp {p.level} | HP {p.hp}/{p.max_hp} | NL {p.energy}/{p.max_energy} | 💰 {p.money} Xu")
             print(f"XP {p.xp}/{100*p.level} | Danh tiếng {p.reputation}\n")
             print("[1] Khám phá  [2] Bản đồ  [3] Nhân vật")
             print("[4] Kho đồ    [5] Nhiệm vụ [6] Lưu game")
@@ -103,12 +103,12 @@ class Game:
             events=[
                 "Bạn tìm thấy một đồng xu cổ.",
                 "Bạn phát hiện một manh mối bị giấu trong terminal.",
-                "Bạn giúp một NPC và nhận được 40 tiền.",
+                "Bạn giúp một NPC và nhận được 40 Xu.",
                 "Một tín hiệu bí ẩn làm tăng danh tiếng của bạn."
             ]
             event=random.choice(events); print(MAGENTA+"\n[!] "+event+RESET)
             if "đồng xu" in event: self.player.inventory["coin"]=self.player.inventory.get("coin",0)+1
-            elif "40 tiền" in event: self.player.money+=40
+            elif "40 Xu" in event: self.player.money+=40
             else: self.player.reputation+=1
         if self.player.hp<=0:
             clear(); box("GAME OVER",["Bóng tối đã nuốt chửng bạn.","Hãy thử lại từ save gần nhất."]); pause()
@@ -128,7 +128,7 @@ class Game:
         clear(); box("NHÂN VẬT",[
             f"Tên: {p.name}",f"Cấp độ: {p.level}",f"Kinh nghiệm: {p.xp}/{100*p.level}",
             f"HP: {p.hp}/{p.max_hp}",f"Năng lượng: {p.energy}/{p.max_energy}",
-            f"Tiền: {p.money}",f"Sức mạnh: {p.strength}",f"Phòng thủ: {p.defense}",
+            f"Xu: {p.money}",f"Sức mạnh: {p.strength}",f"Phòng thủ: {p.defense}",
             f"Trí tuệ: {p.intelligence}",f"May mắn: {p.luck}",f"Danh tiếng: {p.reputation}",
             f"Điểm kỹ năng: {p.skill_points}"])
         if p.skill_points:
@@ -160,7 +160,7 @@ class Game:
             "VỤ ÁN #001 — Tín hiệu Night Raven",
             "Mục tiêu: thu thập và đối chiếu 3 manh mối.",
             f"Tiến độ: {status}",
-            "Phần thưởng: 100 XP + 200 tiền + Danh tiếng +5"
+            "Phần thưởng: 100 XP + 200 Xu + Danh tiếng +5"
         ])
         print("\nHướng dẫn:")
         print("1. Mở Điều tra để xem hồ sơ và manh mối.")
@@ -271,7 +271,7 @@ class Game:
                 ])
                 p.gain_xp(100); p.money+=200; p.reputation+=5
                 q["case_001"]=4
-                print(GREEN+"\nVụ án đã được phá. +100 XP, +200 tiền, +5 danh tiếng."+RESET)
+                print(GREEN+"\nVụ án đã được phá. +100 XP, +200 Xu, +5 danh tiếng."+RESET)
                 save(p)
             pause()
 
@@ -280,21 +280,21 @@ class Game:
         while True:
             clear()
             box("CỬA HÀNG SHADOW",[
-                "Tiền hiện có: 💰 "+str(p.money),
-                "Mua vật phẩm bằng tiền trong game.",
+                "Xu hiện có: 💰 "+str(p.money),
+                "Mua vật phẩm bằng Xu trong game.",
                 "Cửa hàng hoạt động hoàn toàn offline."
             ])
-            print("\n[1] Bộ cứu thương  — 60 tiền  | Hồi 35 HP")
-            print("[2] Nước tăng lực  — 45 tiền  | Hồi 30 năng lượng")
-            print("[3] USB mã hóa     — 120 tiền | Vật phẩm điều tra")
-            print("[4] Đồng xu cổ     — 25 tiền  | Bán lại được")
+            print("\n[1] Bộ cứu thương  — 60 Xu  | Hồi 35 HP")
+            print("[2] Nước tăng lực  — 45 Xu  | Hồi 30 năng lượng")
+            print("[3] USB mã hóa     — 120 Xu | Vật phẩm điều tra")
+            print("[4] Đồng xu cổ     — 25 Xu  | Bán lại được")
             print("[B] Quay lại")
             c=ask("Chọn",{"1","2","3","4","b"})
             if c=="b": return
             items={"1":("medkit",60),"2":("energy",45),"3":("usb",120),"4":("coin",25)}
             key,price=items[c]
             if p.money<price:
-                print(RED+"Không đủ tiền."+RESET)
+                print(RED+"Không đủ Xu."+RESET)
             else:
                 p.money-=price
                 p.inventory[key]=p.inventory.get(key,0)+1
@@ -326,7 +326,7 @@ class Game:
         print("• Mỗi manh mối có Dữ kiện, Suy luận và Gợi ý.")
         print("• Dùng Gợi ý để biết khu vực cần khám phá tiếp.")
         print("• Đủ 3/3 → chọn [5] Kết luận vụ án.")
-        print("• Hoàn thành sẽ nhận 100 XP, 200 tiền và +5 danh tiếng.")
+        print("• Hoàn thành sẽ nhận 100 XP, 200 Xu và +5 danh tiếng.")
         print("\nCHIẾN ĐẤU")
         print("Tấn công gây sát thương cơ bản; Kỹ năng mạnh hơn nhưng tốn năng lượng.")
         print("Phòng thủ giảm sát thương; Bỏ chạy kết thúc trận nếu thành công.")
