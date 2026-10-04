@@ -35,5 +35,5 @@ def fight(player):
             player.hp=max(0,player.hp-damage); print(f"{RED}{enemy['name']} gây {damage} sát thương.{RESET}")
     if player.hp<=0: return False
     player.gain_xp(enemy["xp"]); player.money+=enemy["money"]
-    print(GREEN+f"Bạn đã đánh bại {enemy['name']}! +{enemy['xp']} XP, +{enemy['money']} tiền."+RESET)
+    print(GREEN+f"Bạn đã đánh bại {enemy['name']}! +{enemy['xp']} XP, +{enemy['money']} Xu."+RESET)
     return True
