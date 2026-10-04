@@ -76,6 +76,14 @@ Vào **[7] Điều tra** trong game để:
 5. Thu thập đủ 3 manh mối.
 6. Kết luận vụ án và nhận phần thưởng.
 
+## Xu
+
+Đơn vị tiền tệ trong game là **Xu**.
+
+- Nhận Xu từ các sự kiện, chiến đấu và phần thưởng nhiệm vụ.
+- Dùng Xu để mua vật phẩm tại **Cửa hàng Shadow**.
+- Xu hiện tại được hiển thị trong giao diện nhân vật và cửa hàng.
+
 ## OSINT mô phỏng
 
 Các vụ điều tra chỉ là gameplay giả lập. Game không quét IP thật, brute-force tài khoản, lấy mật khẩu, thu thập dữ liệu cá nhân, quét mạng hoặc tấn công hệ thống.
