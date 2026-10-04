@@ -143,7 +143,9 @@ CASES = [
  ],
  "conclusion":["VỤ ÁN #016 — Shadow Protocol đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
 }
-]\n\nclass Game:
+]
+
+class Game:
     def __init__(self):
         self.player=None
 
