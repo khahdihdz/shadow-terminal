@@ -1,46 +1,41 @@
-import random, time
-from .player import Player, save, load
-from .combat import fight
-from . import data
-from .ui import *
-
-CASE_CLUES = [
-    {
-        "id": "signal",
-        "title": "MANH MỐI 01 — TÍN HIỆU NIGHT RAVEN",
-        "text": [
-            "Một tín hiệu ngắn xuất hiện trên terminal lúc 02:17.",
-            "Mã nguồn: NR-17 / TẦN SỐ 441.7 / ĐIỂM GIAO: GA NGẦM.",
-            "Dữ liệu không chứa danh tính thật; đây là dữ liệu gameplay giả lập.",
-            "Suy luận: người gửi muốn ai đó tiếp cận khu ga tàu điện ngầm."
-        ],
-        "hint": "Hãy kiểm tra Ga tàu điện ngầm trên bản đồ sau khi đọc manh mối này."
-    },
-    {
-        "id": "warehouse",
-        "title": "MANH MỐI 02 — LÔ HÀNG KHÔNG NGƯỜI NHẬN",
-        "text": [
-            "Một phiếu vận chuyển cũ được tìm thấy trong nhà kho.",
-            "Lô hàng: SH-204. Tuyến: Nhà kho → Khu công nghiệp.",
-            "Người nhận chỉ được ghi là 'RAVEN'. Không có địa chỉ hay thông tin cá nhân.",
-            "Suy luận: SHADOW đang chuyển thiết bị giữa hai khu vực."
-        ],
-        "hint": "Khám phá Nhà kho bỏ hoang và Khu công nghiệp để tìm thêm dấu vết."
-    },
-    {
-        "id": "base",
-        "title": "MANH MỐI 03 — DẤU VẾT CĂN CỨ",
-        "text": [
-            "USB mã hóa chứa một đoạn nhật ký giả lập của SHADOW.",
-            "Nội dung: 'NR-17 chỉ là mồi nhử. Điểm cuối nằm dưới khu công nghiệp.'",
-            "Một tọa độ gameplay trỏ về Căn cứ bí mật.",
-            "Suy luận: Night Raven đang dẫn nhân vật tới trung tâm của vụ án."
-        ],
-        "hint": "Đến Căn cứ bí mật để đối chiếu dữ kiện và mở khóa phần kết luận."
-    }
-]
-
-class Game:
+CASES = [
+{
+ "id":"case_001","title":"VỤ ÁN #001 — Tín hiệu Night Raven","target":"Xác định nguồn tín hiệu Night Raven và điểm cuối của nó.","reward_xp":100,"reward_xu":200,"reward_rep":5,
+ "clues":[
+  {"title":"MANH MỐI 01 — TÍN HIỆU NIGHT RAVEN","text":["Một tín hiệu ngắn xuất hiện trên terminal lúc 02:17.","Mã nguồn: NR-17 / TẦN SỐ 441.7 / ĐIỂM GIAO: GA NGẦM.","Dữ liệu hoàn toàn giả lập cho gameplay.","Suy luận: người gửi muốn ai đó tiếp cận khu ga tàu điện ngầm."],"hint":"Kiểm tra Ga tàu điện ngầm."},
+  {"title":"MANH MỐI 02 — LÔ HÀNG KHÔNG NGƯỜI NHẬN","text":["Một phiếu vận chuyển cũ được tìm thấy trong nhà kho.","Lô hàng SH-204 đi từ Nhà kho tới Khu công nghiệp.","Người nhận chỉ được ghi là RAVEN.","Suy luận: SHADOW đang chuyển thiết bị giữa hai khu vực."],"hint":"Khám phá Nhà kho bỏ hoang và Khu công nghiệp."},
+  {"title":"MANH MỐI 03 — DẤU VẾT CĂN CỨ","text":["USB mã hóa chứa nhật ký giả lập của SHADOW.","NR-17 chỉ là mồi nhử. Điểm cuối nằm dưới khu công nghiệp.","Tọa độ gameplay trỏ về Căn cứ bí mật.","Suy luận: Night Raven đang dẫn nhân vật tới trung tâm vụ án."],"hint":"Đến Căn cứ bí mật để đối chiếu dữ kiện."}
+ ],
+ "conclusion":["Night Raven là tín hiệu mồi nhử do SHADOW dựng lên.","Lô hàng SH-204 nối Nhà kho với Khu công nghiệp.","Dữ kiện cuối cùng xác nhận điểm đến là Căn cứ bí mật.","Vụ án #001 đã được giải."]
+},
+{
+ "id":"case_002","title":"VỤ ÁN #002 — Bóng Ma Ga Số 7","target":"Tìm nguyên nhân của chuỗi tín hiệu bí ẩn tại Ga số 7.","reward_xp":130,"reward_xu":260,"reward_rep":6,
+ "clues":[
+  {"title":"MANH MỐI 01 — VÉ TÀU TRẮNG","text":["Một vé tàu không có mã hành khách xuất hiện sau chuyến cuối.","Mã tuyến: G7-09, thời gian 00:43.","Đây là vật phẩm gameplay giả lập.","Suy luận: tín hiệu được phát ngay sau chuyến tàu cuối."],"hint":"Kiểm tra Ga tàu điện ngầm."},
+  {"title":"MANH MỐI 02 — ÂM THANH LẶP LẠI","text":["Terminal ghi nhận một chuỗi âm thanh lặp lại mỗi 17 giây.","Chuỗi được đánh dấu ECHO-7.","Không có dữ liệu người thật trong hồ sơ.","Suy luận: đây là tín hiệu tự động."],"hint":"Tìm manh mối ở Phố cổ và Ga tàu điện ngầm."},
+  {"title":"MANH MỐI 03 — HỘP PHÁT TÍN HIỆU","text":["Một hộp phát tín hiệu cũ được giấu sau bảng điện.","Nó được cài để đánh lạc hướng người điều tra.","Suy luận: Bóng Ma Ga Số 7 không phải một con người."],"hint":"Đối chiếu dữ kiện tại Căn cứ bí mật."}
+ ],
+ "conclusion":["Bóng Ma Ga Số 7 là một hệ thống phát tín hiệu tự động.","Chuỗi ECHO-7 được dùng để tạo tin đồn về một kẻ bí ẩn.","Không có danh tính thật nào liên quan vụ án.","Vụ án #002 đã được giải."]
+},
+{
+ "id":"case_003","title":"VỤ ÁN #003 — Chiếc USB Mất Tích","target":"Xác định đường đi của một USB mã hóa bị thất lạc.","reward_xp":160,"reward_xu":320,"reward_rep":7,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ USB-77","text":["Kho đồ ghi nhận USB-77 lần cuối tại Khu trung tâm.","Thiết bị chỉ chứa dữ liệu gameplay giả lập.","Suy luận: USB đã được chuyển đi sau một cuộc trao đổi."],"hint":"Khám phá Khu trung tâm."},
+  {"title":"MANH MỐI 02 — NHẬT KÝ NHÀ KHO","text":["Một nhật ký giả lập ghi nhận kiện hàng USB-77 tại Nhà kho bỏ hoang.","Không có tên hay dữ liệu cá nhân thật.","Suy luận: USB đã đi qua Nhà kho."],"hint":"Kiểm tra Nhà kho bỏ hoang."},
+  {"title":"MANH MỐI 03 — ĐIỂM LƯU TRỮ","text":["Dấu vết cuối cùng chỉ tới một tủ khóa tại Khu công nghiệp.","Mã khóa gameplay là SH-77.","Suy luận: USB vẫn nằm trong tuyến vận chuyển của SHADOW."],"hint":"Đến Khu công nghiệp để hoàn tất đối chiếu."}
+ ],
+ "conclusion":["USB-77 đã đi qua Khu trung tâm và Nhà kho bỏ hoang.","Điểm lưu trữ cuối cùng là Khu công nghiệp.","Thiết bị là một vật phẩm điều tra trong thế giới giả lập.","Vụ án #003 đã được giải."]
+},
+{
+ "id":"case_004","title":"VỤ ÁN #004 — Kẻ Gọi Lúc 03:33","target":"Giải mã nguồn gốc của cuộc gọi bí ẩn lúc 03:33.","reward_xp":190,"reward_xu":380,"reward_rep":8,
+ "clues":[
+  {"title":"MANH MỐI 01 — CUỘC GỌI 03:33","text":["Terminal ghi lại một cuộc gọi giả lập lúc 03:33.","Mã cuộc gọi: E-333.","Không có số điện thoại thật trong dữ liệu.","Suy luận: thời điểm là một khóa điều tra."],"hint":"Kiểm tra Khu trung tâm."},
+  {"title":"MANH MỐI 02 — DÒNG MÃ 333","text":["Một dòng mã 333 xuất hiện trong terminal cũ.","Ba nhóm ký tự trỏ tới Phố cổ, Nhà kho và Ga tàu.","Suy luận: cuộc gọi là lời dẫn đường."],"hint":"Đối chiếu Phố cổ và Nhà kho bỏ hoang."},
+  {"title":"MANH MỐI 03 — NGƯỜI GỌI KHÔNG TỒN TẠI","text":["Hồ sơ xác nhận cuộc gọi được tạo bởi một bộ phát tự động.","Không có nhân vật thật đứng sau cuộc gọi.","Suy luận: mục tiêu là kiểm tra khả năng suy luận của Raven."],"hint":"Đến Căn cứ bí mật để xác nhận."}
+ ],
+ "conclusion":["Cuộc gọi 03:33 được tạo bởi một bộ phát tự động.","Mã 333 dẫn người điều tra qua ba khu vực.","Kẻ gọi không phải một nhân vật thật.","Vụ án #004 đã được giải."]
+}
+]\n\nclass Game:
     def __init__(self):
         self.player=None
 
@@ -154,126 +149,83 @@ class Game:
 
     def quests(self):
         p=self.player; clear()
-        progress=p.quests.get("case_001",0)
-        status="ĐÃ HOÀN THÀNH" if progress>=4 else f"{min(progress,3)}/3"
-        box("NHIỆM VỤ",[
-            "VỤ ÁN #001 — Tín hiệu Night Raven",
-            "Mục tiêu: thu thập và đối chiếu 3 manh mối.",
-            f"Tiến độ: {status}",
-            "Phần thưởng: 100 XP + 200 Xu + Danh tiếng +5"
-        ])
-        print("\nHướng dẫn:")
-        print("1. Mở Điều tra để xem hồ sơ và manh mối.")
-        print("2. Chọn Tìm manh mối khi vụ án chưa đủ 3 dữ kiện.")
-        print("3. Đọc gợi ý của từng manh mối để biết khu vực cần khám phá.")
-        print("4. Khi đủ 3 manh mối, chọn Kết luận vụ án.")
-        if progress>=3 and progress<4:
-            p.gain_xp(100); p.money+=200; p.reputation+=5
-            p.quests["case_001"]=4
-            print(GREEN+"\nBạn đã phá được vụ án! Phần thưởng đã nhận."+RESET)
+        print(BOLD+CYAN+"NHIỆM VỤ ĐIỀU TRA"+RESET)
+        for case in CASES:
+            state=p.quests.get(case["id"],0)
+            status="ĐÃ HOÀN THÀNH" if state==4 else f"{min(state,3)}/3"
+            print(f"\n{case['title']} — {status}")
+            print(f"Mục tiêu: {case['target']}")
+            print(f"Phần thưởng: {case['reward_xp']} XP + {case['reward_xu']} Xu + Danh tiếng +{case['reward_rep']}")
+        print("\nVào [7] Điều tra để chọn vụ án và thu thập manh mối.")
         pause()
 
     def investigation(self):
         p=self.player
-        q=p.quests
-        progress=q.get("case_001",0)
-        clues=q.setdefault("case_001_clues",[])
         clear()
-        print(BOLD+CYAN+"╔══════════════════════════════════════════════╗")
-        print("║              HỒ SƠ ĐIỀU TRA                 ║")
-        print("║              VỤ ÁN #001                     ║")
-        print("╚══════════════════════════════════════════════╝"+RESET)
-        print("\nMục tiêu: xác định Night Raven là gì và tìm điểm cuối của tín hiệu.")
-        print("Trạng thái:", GREEN+"ĐÃ PHÁ ÁN"+RESET if progress>=4 else YELLOW+f"ĐANG ĐIỀU TRA ({len(clues)}/3)"+RESET)
-        print("\n[1] Hồ sơ vụ án")
-        print("[2] Xem toàn bộ manh mối đã có")
-        print("[3] Hướng dẫn điều tra")
-        print("[4] Tìm manh mối")
-        if len(clues)>=3 and progress<4:
-            print("[5] Kết luận vụ án")
-        elif progress>=4:
-            print("[5] Xem kết luận")
+        print(BOLD+CYAN+"HỒ SƠ ĐIỀU TRA — SHADOW CASE FILES"+RESET)
+        for i,case in enumerate(CASES,1):
+            state=p.quests.get(case["id"],0)
+            status="ĐÃ PHÁ ÁN" if state==4 else f"{min(state,3)}/3 manh mối"
+            print(f"[{i}] {case['title']} — {status}")
         print("[B] Quay lại")
-        choices={"1","2","3","4","b"}
-        if len(clues)>=3 or progress>=4: choices.add("5")
-        c=ask("Chọn",choices)
-        if c=="1":
+        c=ask("Chọn vụ án",set(str(i) for i in range(1,len(CASES)+1))|{"b"})
+        if c=="b": return
+        case=CASES[int(c)-1]
+        self.case_menu(case)
+
+    def case_menu(self,case):
+        p=self.player
+        q=p.quests
+        state=q.get(case["id"],0)
+        clues=q.setdefault(case["id"]+"_clues",[])
+        while True:
             clear()
-            box("HỒ SƠ VỤ ÁN",[
-                "Mã vụ án: CASE-001",
-                "Tên: Tín hiệu Night Raven",
-                "Đối tượng: tổ chức SHADOW (hư cấu)",
-                "Điểm bắt đầu: một tín hiệu lúc 02:17",
-                "Nhiệm vụ: tìm nguồn tín hiệu và điểm cuối",
-                "Quy tắc: chỉ sử dụng dữ liệu giả lập trong game."
-            ])
-            print("\nCâu hỏi điều tra:")
-            print("• Ai phát tín hiệu?")
-            print("• Vì sao tín hiệu dẫn tới ga ngầm?")
-            print("• Lô hàng SH-204 đi đâu?")
-            print("• Điểm cuối của Night Raven nằm ở đâu?")
-            pause()
-        elif c=="2":
-            clear()
-            if not clues:
-                print(YELLOW+"Bạn chưa có manh mối nào."+RESET)
-            else:
-                for index in clues:
-                    clue=CASE_CLUES[index]
-                    print(BOLD+f"\n{clue['title']}"+RESET)
+            status="ĐÃ PHÁ ÁN" if state==4 else f"ĐANG ĐIỀU TRA ({len(clues)}/3)"
+            print(BOLD+CYAN+case["title"]+RESET)
+            print("Mục tiêu:",case["target"])
+            print("Trạng thái:",GREEN+status+RESET if state==4 else YELLOW+status+RESET)
+            print("\n[1] Hồ sơ vụ án")
+            print("[2] Xem manh mối")
+            print("[3] Tìm manh mối")
+            if len(clues)>=3 and state<4: print("[4] Kết luận vụ án")
+            elif state==4: print("[4] Xem kết luận")
+            print("[B] Quay lại")
+            choices={"1","2","3","b"}
+            if len(clues)>=3 or state==4: choices.add("4")
+            c=ask("Chọn",choices)
+            if c=="b": return
+            if c=="1":
+                clear(); box("HỒ SƠ VỤ ÁN",[f"Mã: {case['id'].upper()}",f"Mục tiêu: {case['target']}","Dữ liệu điều tra hoàn toàn giả lập.","Không sử dụng dữ liệu cá nhân hoặc hệ thống thật."]); pause()
+            elif c=="2":
+                clear()
+                if not clues: print(YELLOW+"Bạn chưa có manh mối nào."+RESET)
+                for idx in clues:
+                    clue=case["clues"][idx]
+                    print(BOLD+"\n"+clue["title"]+RESET)
                     for line in clue["text"]: print("  "+line)
                     print(MAGENTA+"  Gợi ý: "+clue["hint"]+RESET)
-            pause()
-        elif c=="3":
-            clear()
-            box("HƯỚNG DẪN ĐIỀU TRA",[
-                "BƯỚC 1 — Đọc hồ sơ để biết câu hỏi.",
-                "BƯỚC 2 — Tìm manh mối cho tới khi đủ 3/3.",
-                "BƯỚC 3 — Đọc kỹ phần Suy luận và Gợi ý.",
-                "BƯỚC 4 — Đến khu vực được gợi ý để nhập vai điều tra.",
-                "BƯỚC 5 — Khi đủ 3 manh mối, chọn Kết luận vụ án.",
-                "BƯỚC 6 — Nhận thưởng và xem kết luận đầy đủ."
-            ])
-            print("\nKhông cần Internet. Không có quét mạng, mật khẩu thật hay dữ liệu cá nhân.")
-            pause()
-        elif c=="4":
-            missing=[i for i in range(len(CASE_CLUES)) if i not in clues]
-            if not missing:
-                print(GREEN+"Bạn đã thu thập đủ toàn bộ manh mối."+RESET)
-            else:
-                index=random.choice(missing)
-                clues.append(index)
-                q["case_001"]=len(clues)
-                clue=CASE_CLUES[index]
-                clear()
-                print(GREEN+BOLD+"[+] MANH MỐI MỚI ĐƯỢC GHI NHẬN"+RESET)
-                print(BOLD+"\n"+clue["title"]+RESET)
+                pause()
+            elif c=="3":
+                missing=[i for i in range(3) if i not in clues]
+                if not missing:
+                    print(GREEN+"Đã thu thập đủ 3 manh mối."+RESET); pause(); continue
+                idx=random.choice(missing); clues.append(idx); q[case["id"]]=len(clues)
+                clue=case["clues"][idx]
+                clear(); print(GREEN+BOLD+"[+] MANH MỐI MỚI"+RESET); print(BOLD+"\n"+clue["title"]+RESET)
                 for line in clue["text"]: print(line)
-                print(MAGENTA+"\nGợi ý tiếp theo: "+clue["hint"]+RESET)
-                save(p)
-            pause()
-        elif c=="5":
-            clear()
-            if progress>=4:
-                box("KẾT LUẬN ĐÃ XÁC NHẬN",[
-                    "Night Raven là tín hiệu mồi nhử do SHADOW dựng lên.",
-                    "Lô hàng SH-204 nối Nhà kho với Khu công nghiệp.",
-                    "Dữ kiện cuối cùng xác nhận điểm đến là Căn cứ bí mật.",
-                    "Vụ án #001 đã được giải."
-                ])
-            elif len(clues)>=3:
-                q["case_001"]=3
-                box("KẾT LUẬN VỤ ÁN",[
-                    "Tín hiệu Night Raven dẫn dụ người điều tra qua ga ngầm.",
-                    "Lô hàng SH-204 chứng minh tuyến Nhà kho → Khu công nghiệp.",
-                    "Dấu vết cuối cùng chỉ tới Căn cứ bí mật.",
-                    "Kết luận: Night Raven là mồi nhử để che giấu hoạt động của SHADOW."
-                ])
-                p.gain_xp(100); p.money+=200; p.reputation+=5
-                q["case_001"]=4
-                print(GREEN+"\nVụ án đã được phá. +100 XP, +200 Xu, +5 danh tiếng."+RESET)
-                save(p)
-            pause()
+                print(MAGENTA+"\nGợi ý: "+clue["hint"]+RESET)
+                save(p); pause()
+            elif c=="4":
+                clear()
+                if state==4:
+                    box("KẾT LUẬN ĐÃ XÁC NHẬN",case["conclusion"])
+                else:
+                    box("KẾT LUẬN VỤ ÁN",case["conclusion"])
+                    p.gain_xp(case["reward_xp"]); p.money+=case["reward_xu"]; p.reputation+=case["reward_rep"]
+                    q[case["id"]]=4; state=4
+                    print(GREEN+f"\nVụ án đã được phá. +{case['reward_xp']} XP, +{case['reward_xu']} Xu, +{case['reward_rep']} danh tiếng."+RESET)
+                    save(p)
+                pause()
 
     def shop(self):
         p=self.player
@@ -320,13 +272,13 @@ class Game:
         print("5. Vào Kho đồ để hồi HP/năng lượng hoặc bán đồng xu.")
         print("6. Vào Nhiệm vụ để xem tiến độ.")
         print("7. Vào Điều tra để đọc hồ sơ, thu thập và đối chiếu manh mối.")
-        print("\nĐIỀU TRA VỤ ÁN #001")
+        print("\nĐIỀU TRA NHIỀU VỤ ÁN")
         print("• Mở [7] Điều tra → [1] Hồ sơ vụ án để đọc toàn bộ mục tiêu.")
-        print("• Chọn [4] Tìm manh mối cho tới khi đạt 3/3.")
+        print("• Vào [7] Điều tra, chọn một vụ án và tìm manh mối cho tới khi đạt 3/3.")
         print("• Mỗi manh mối có Dữ kiện, Suy luận và Gợi ý.")
         print("• Dùng Gợi ý để biết khu vực cần khám phá tiếp.")
         print("• Đủ 3/3 → chọn [5] Kết luận vụ án.")
-        print("• Hoàn thành sẽ nhận 100 XP, 200 Xu và +5 danh tiếng.")
+        print("• Hoàn thành từng vụ án sẽ nhận XP, Xu và danh tiếng theo hồ sơ vụ án.")
         print("\nCHIẾN ĐẤU")
         print("Tấn công gây sát thương cơ bản; Kỹ năng mạnh hơn nhưng tốn năng lượng.")
         print("Phòng thủ giảm sát thương; Bỏ chạy kết thúc trận nếu thành công.")
