@@ -1,3 +1,9 @@
+import random
+from . import data
+from .player import Player, save, load
+from .combat import fight
+from .ui import clear, pause, box, ask, title, BOLD, CYAN, GREEN, YELLOW, RED, MAGENTA, RESET
+
 CASES = [
 {
  "id":"case_001","title":"VỤ ÁN #001 — Tín hiệu Night Raven","target":"Xác định nguồn tín hiệu Night Raven và điểm cuối của nó.","reward_xp":100,"reward_xu":200,"reward_rep":5,
