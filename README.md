@@ -2,27 +2,47 @@
 
 Game RPG/Survival chạy trực tiếp trên **Termux Android**, giao diện Terminal tiếng Việt.
 
+## Landing Page
+
+Trang giới thiệu game được triển khai bằng GitHub Pages:
+
+**https://khahdihdz.github.io/shadow-terminal/**
+
+Landing page tự động deploy lại mỗi khi có commit lên nhánh `main`. Trang cũng hiển thị commit mới nhất của repository.
+
+## Tính năng
+
+- RPG sinh tồn theo lượt hoàn toàn offline.
+- Khám phá 6 khu vực.
+- Combat theo lượt.
+- Kỹ năng và nâng cấp nhân vật.
+- Kho đồ và vật phẩm.
+- Nhiệm vụ và điều tra có hồ sơ, manh mối, gợi ý và kết luận.
+- Puzzle OSINT mô phỏng bằng dữ liệu hư cấu.
+- Sự kiện ngẫu nhiên.
+- Save/Load trong thư mục Downloads.
+- UI tiếng Việt.
+- Tự động triển khai landing page bằng GitHub Actions.
+
 ## Lưu dữ liệu
 
-Game lưu save trong thư mục con:
+Game lưu save trong:
 
 ```
 ~/storage/downloads/ShadowTerminal/
 ```
 
-Trên Android, thư mục này tương ứng với:
+Trên Android:
 
 ```
 Download/ShadowTerminal/
 ```
 
-Trước lần chạy đầu tiên, nếu Termux chưa được cấp quyền truy cập bộ nhớ, chạy:
+Trước lần chạy đầu tiên, nếu Termux chưa được cấp quyền truy cập bộ nhớ:
 
 ```bash
 termux-setup-storage
 ```
-
-Sau đó chấp nhận quyền truy cập.
 
 Nếu đường dẫn Downloads của Termux chưa tồn tại, game tự động thử `~/downloads/ShadowTerminal/`.
 
@@ -45,26 +65,16 @@ Hoặc:
 python3 main.py
 ```
 
-## Tính năng
+## Điều tra
 
-- RPG theo lượt hoàn toàn offline.
-- Khám phá nhiều khu vực.
-- Combat theo lượt.
-- Kỹ năng và nâng cấp nhân vật.
-- Kho đồ và vật phẩm.
-- Nhiệm vụ/điều tra.
-- Puzzle OSINT mô phỏng bằng dữ liệu hư cấu.
-- Sự kiện ngẫu nhiên.
-- Save/Load trong thư mục Downloads.
-- UI tiếng Việt.
-- Tối ưu màn hình điện thoại.
+Vào **[7] Điều tra** trong game để:
 
-## Điều khiển
-
-```
-1-9  Chọn menu
-B    Quay lại
-```
+1. Đọc toàn bộ hồ sơ vụ án.
+2. Xem các câu hỏi điều tra.
+3. Đọc từng manh mối đầy đủ.
+4. Xem suy luận và gợi ý.
+5. Thu thập đủ 3 manh mối.
+6. Kết luận vụ án và nhận phần thưởng.
 
 ## OSINT mô phỏng
 
