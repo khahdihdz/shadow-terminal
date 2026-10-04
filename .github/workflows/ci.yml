@@ -1,0 +1,27 @@
+name: Shadow Terminal CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Thiết lập Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kiểm tra cú pháp
+        run: python -m compileall -q .
+      - name: Kiểm tra khởi động
+        run: python - <<'PY'
+from game.player import Player
+from game.combat import fight
+from game.engine import Game
+p=Player()
+assert p.level == 1 and p.hp == 100
+print("Shadow Terminal: smoke test OK")
+PY
