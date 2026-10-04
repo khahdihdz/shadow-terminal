@@ -47,14 +47,26 @@ class Game:
     def run(self):
         while True:
             clear(); title()
-            print("[1] Trò chơi mới\n[2] Tiếp tục\n[3] Tải game\n[4] Hướng dẫn\n[5] Thoát")
+            print("[1] Trò chơi mới")
+            print("[2] Tiếp tục")
+            print("[3] Tải game")
+            print("[4] Hướng dẫn")
+            print("[5] Thoát")
             c=ask("Chọn",{"1","2","3","4","5"})
-            if c=="1": self.new_game(); self.loop()
+            if c=="1":
+                self.new_game()
+                self.loop()
             elif c in {"2","3"}:
                 self.player=load(1)
-                if self.player: self.loop()
-                else: print(RED+"Chưa có dữ liệu lưu."+RESET); pause()
-            else: return
+                if self.player:
+                    self.loop()
+                else:
+                    print(RED+"Chưa có dữ liệu lưu."+RESET)
+                    pause()
+            elif c=="4":
+                self.help()
+            elif c=="5":
+                return
 
     def new_game(self):
         clear(); title()
@@ -80,8 +92,9 @@ class Game:
             elif c=="5": self.quests()
             elif c=="6": save(p); print(GREEN+"Đã lưu game."+RESET); pause()
             elif c=="7": self.investigation()
-            elif c=="8": self.settings()
-            else: save(p); return
+            elif c=="8": self.shop()
+            elif c=="9": self.settings()
+            elif c=="0": save(p); return
 
     def explore(self):
         if random.random()<0.45:
