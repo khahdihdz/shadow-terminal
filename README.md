@@ -17,7 +17,7 @@ Landing page tự động deploy lại mỗi khi có commit lên nhánh `main`. 
 - Combat theo lượt.
 - Kỹ năng và nâng cấp nhân vật.
 - Kho đồ và vật phẩm.
-- Nhiệm vụ và điều tra có hồ sơ, manh mối, gợi ý và kết luận.
+- Hệ thống điều tra nhiều vụ án, mỗi vụ có hồ sơ, 3 manh mối, gợi ý, kết luận và phần thưởng riêng.
 - Puzzle OSINT mô phỏng bằng dữ liệu hư cấu.
 - Sự kiện ngẫu nhiên.
 - Save/Load trong thư mục Downloads.
