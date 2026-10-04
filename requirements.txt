@@ -1,0 +1,1 @@
+# Shadow Terminal ưu tiên thư viện chuẩn Python, không bắt buộc dependency bên ngoài.
