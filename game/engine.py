@@ -71,8 +71,8 @@ class Game:
             print(f"XP {p.xp}/{100*p.level} | Danh tiếng {p.reputation}\n")
             print("[1] Khám phá  [2] Bản đồ  [3] Nhân vật")
             print("[4] Kho đồ    [5] Nhiệm vụ [6] Lưu game")
-            print("[7] Điều tra  [8] Cài đặt [9] Thoát")
-            c=ask("Chọn",set("123456789"))
+            print("[7] Điều tra  [8] Cửa hàng [9] Cài đặt [0] Thoát")
+            c=ask("Chọn",set("0123456789"))
             if c=="1": self.explore()
             elif c=="2": self.map_menu()
             elif c=="3": self.character()
@@ -259,6 +259,33 @@ class Game:
                 p.gain_xp(100); p.money+=200; p.reputation+=5
                 q["case_001"]=4
                 print(GREEN+"\nVụ án đã được phá. +100 XP, +200 tiền, +5 danh tiếng."+RESET)
+                save(p)
+            pause()
+
+    def shop(self):
+        p=self.player
+        while True:
+            clear()
+            box("CỬA HÀNG SHADOW",[
+                "Tiền hiện có: 💰 "+str(p.money),
+                "Mua vật phẩm bằng tiền trong game.",
+                "Cửa hàng hoạt động hoàn toàn offline."
+            ])
+            print("\n[1] Bộ cứu thương  — 60 tiền  | Hồi 35 HP")
+            print("[2] Nước tăng lực  — 45 tiền  | Hồi 30 năng lượng")
+            print("[3] USB mã hóa     — 120 tiền | Vật phẩm điều tra")
+            print("[4] Đồng xu cổ     — 25 tiền  | Bán lại được")
+            print("[B] Quay lại")
+            c=ask("Chọn",{"1","2","3","4","b"})
+            if c=="b": return
+            items={"1":("medkit",60),"2":("energy",45),"3":("usb",120),"4":("coin",25)}
+            key,price=items[c]
+            if p.money<price:
+                print(RED+"Không đủ tiền."+RESET)
+            else:
+                p.money-=price
+                p.inventory[key]=p.inventory.get(key,0)+1
+                print(GREEN+f"Đã mua {data.ITEMS[key]['name']}."+RESET)
                 save(p)
             pause()
 
