@@ -3,9 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050505">
 <title>Shadow Terminal — Sinh Tồn Bóng Tối</title>
-<meta name="description" content="Shadow Terminal — game RPG sinh tồn bóng tối chạy trực tiếp trên Termux Android.">
+<meta name="description" content="Shadow Terminal — game RPG sinh tồn bóng tối chạy trực tiếp trên Termux Android. Khám phá, chiến đấu, phát triển nhân vật và điều tra bí mật của SHADOW.">
+<meta name="keywords" content="Shadow Terminal, Termux, Android, RPG, game, sinh tồn, điều tra, OSINT">
+<meta name="author" content="khahdihdz">
+<meta name="theme-color" content="#050505">
+<link rel="canonical" href="https://khahdihdz.github.io/shadow-terminal/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shadow Terminal">
+<meta property="og:title" content="Shadow Terminal — Sinh Tồn Bóng Tối">
+<meta property="og:description" content="Game RPG sinh tồn chạy trên Termux Android: khám phá, chiến đấu theo lượt, phát triển nhân vật và điều tra các bí mật của SHADOW.">
+<meta property="og:url" content="https://khahdihdz.github.io/shadow-terminal/">
+<meta property="og:image" content="https://khahdihdz.github.io/shadow-terminal/og-image.png">
+<meta property="og:image:secure_url" content="https://khahdihdz.github.io/shadow-terminal/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shadow Terminal — Sinh Tồn Bóng Tối">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shadow Terminal — Sinh Tồn Bóng Tối">
+<meta name="twitter:description" content="RPG sinh tồn bóng tối trên Termux Android — khám phá, chiến đấu và điều tra Night Raven.">
+<meta name="twitter:image" content="https://khahdihdz.github.io/shadow-terminal/og-image.png">
+<meta name="twitter:image:alt" content="Shadow Terminal — Sinh Tồn Bóng Tối">
+
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -19,89 +41,37 @@
       <a class="button primary" href="https://github.com/khahdihdz/shadow-terminal">Xem mã nguồn</a>
       <a class="button" href="#install">Cài đặt trên Termux</a>
     </div>
-    <div class="commit-card">
-      <span>PHIÊN BẢN TRANG</span>
-      <strong id="commit">Đang tải commit mới nhất…</strong>
-      <small id="commit-meta"></small>
-    </div>
+    <div class="commit-card"><span>PHIÊN BẢN TRANG</span><strong id="commit">Đang tải commit mới nhất…</strong><small id="commit-meta"></small></div>
   </div>
 </header>
-
 <main>
-<section>
-  <div class="eyebrow">TRẢI NGHIỆM</div>
-  <h2>Một thế giới bí ẩn ngay trong Terminal</h2>
-  <div class="grid">
-    <article><b>⚔️ Chiến đấu theo lượt</b><p>Đối đầu kẻ địch, sử dụng kỹ năng, vật phẩm, phòng thủ hoặc tìm cách bỏ chạy.</p></article>
-    <article><b>🗺️ Khám phá</b><p>Di chuyển qua 6 khu vực, gặp sự kiện ngẫu nhiên và tìm tài nguyên.</p></article>
-    <article><b>🔎 Điều tra</b><p>Thu thập manh mối, đọc hồ sơ, đối chiếu dữ kiện và giải các vụ án mô phỏng.</p></article>
-    <article><b>📦 Save trong Downloads</b><p>Dữ liệu được lưu tại <code>Download/ShadowTerminal/</code>, thuận tiện sao lưu trên Android.</p></article>
-    <article><b>📈 Phát triển nhân vật</b><p>Lên cấp, nhận điểm kỹ năng, tăng sức mạnh, phòng thủ, trí tuệ và may mắn.</p></article>
-    <article><b>🛡️ OSINT an toàn</b><p>Các tình huống điều tra chỉ dùng dữ liệu hư cấu, không quét mạng hay thu thập dữ liệu thật.</p></article>
-  </div>
-</section>
-
-<section class="story">
-  <div>
-    <div class="eyebrow">CÂU CHUYỆN</div>
-    <h2>Tín hiệu Night Raven</h2>
-    <p>Bạn tỉnh dậy trước một terminal bí ẩn. Một tín hiệu lúc 02:17 dẫn bạn vào chuỗi dấu vết liên quan tới SHADOW.</p>
-    <p>Nhà kho bỏ hoang, ga tàu điện ngầm, khu công nghiệp và một căn cứ bí mật đang chờ bạn khám phá.</p>
-  </div>
-  <pre aria-label="terminal">╔══════════════════════╗
+<section><div class="eyebrow">TRẢI NGHIỆM</div><h2>Một thế giới bí ẩn ngay trong Terminal</h2><div class="grid">
+<article><b>⚔️ Chiến đấu theo lượt</b><p>Đối đầu kẻ địch, sử dụng kỹ năng, vật phẩm, phòng thủ hoặc tìm cách bỏ chạy.</p></article>
+<article><b>🗺️ Khám phá</b><p>Di chuyển qua 6 khu vực, gặp sự kiện ngẫu nhiên và tìm tài nguyên.</p></article>
+<article><b>🔎 Điều tra</b><p>Thu thập manh mối, đọc hồ sơ, đối chiếu dữ kiện và giải các vụ án mô phỏng.</p></article>
+<article><b>📦 Save trong Downloads</b><p>Dữ liệu được lưu tại <code>Download/ShadowTerminal/</code>, thuận tiện sao lưu trên Android.</p></article>
+<article><b>📈 Phát triển nhân vật</b><p>Lên cấp, nhận điểm kỹ năng, tăng sức mạnh, phòng thủ, trí tuệ và may mắn.</p></article>
+<article><b>🛡️ OSINT an toàn</b><p>Các tình huống điều tra chỉ dùng dữ liệu hư cấu, không quét mạng hay thu thập dữ liệu thật.</p></article>
+</div></section>
+<section class="story"><div><div class="eyebrow">CÂU CHUYỆN</div><h2>Tín hiệu Night Raven</h2><p>Bạn tỉnh dậy trước một terminal bí ẩn. Một tín hiệu lúc 02:17 dẫn bạn vào chuỗi dấu vết liên quan tới SHADOW.</p><p>Nhà kho bỏ hoang, ga tàu điện ngầm, khu công nghiệp và một căn cứ bí mật đang chờ bạn khám phá.</p></div><pre aria-label="terminal">╔══════════════════════╗
 ║ SHADOW TERMINAL      ║
 ║ SIGNAL: NIGHT RAVEN  ║
 ║ TIME: 02:17          ║
 ║ STATUS: INVESTIGATE  ║
-╚══════════════════════╝</pre>
-</section>
-
-<section id="install">
-  <div class="eyebrow">BẮT ĐẦU</div>
-  <h2>Cài đặt nhanh trên Termux</h2>
-  <pre><code>pkg update
+╚══════════════════════╝</pre></section>
+<section id="install"><div class="eyebrow">BẮT ĐẦU</div><h2>Cài đặt nhanh trên Termux</h2><pre><code>pkg update
 pkg install python git
 termux-setup-storage
 
 git clone https://github.com/khahdihdz/shadow-terminal.git
 cd shadow-terminal
 bash install.sh
-shadow</code></pre>
-  <p class="note">Sau khi cài, lệnh <code>shadow</code> được đặt trong thư mục lệnh của Termux.</p>
-</section>
-
-<section class="live">
-  <div>
-    <div class="eyebrow">CẬP NHẬT TỰ ĐỘNG</div>
-    <h2>Landing page luôn bám theo repository</h2>
-    <p>Mỗi commit lên <code>main</code> sẽ kích hoạt GitHub Actions để build và triển khai lại trang. Trang cũng đọc commit mới nhất từ GitHub để hiển thị trạng thái hiện tại.</p>
-  </div>
-  <a class="button primary" href="https://github.com/khahdihdz/shadow-terminal/commits/main">Xem lịch sử commit</a>
-</section>
+shadow</code></pre><p class="note">Sau khi cài, lệnh <code>shadow</code> được đặt trong thư mục lệnh của Termux.</p></section>
+<section class="live"><div><div class="eyebrow">CẬP NHẬT TỰ ĐỘNG</div><h2>Landing page luôn bám theo repository</h2><p>Mỗi commit lên <code>main</code> sẽ kích hoạt GitHub Actions để build và triển khai lại trang. Trang cũng đọc commit mới nhất từ GitHub để hiển thị trạng thái hiện tại.</p></div><a class="button primary" href="https://github.com/khahdihdz/shadow-terminal/commits/main">Xem lịch sử commit</a></section>
 </main>
-
 <footer>© 2026 khahdihdz · Shadow Terminal — Sinh Tồn Bóng Tối</footer>
-
 <script>
-(async () => {
-  const commit = document.getElementById("commit");
-  const meta = document.getElementById("commit-meta");
-  try {
-    const r = await fetch("https://api.github.com/repos/khahdihdz/shadow-terminal/commits/main", {
-      headers: { "Accept": "application/vnd.github+json" }
-    });
-    if (!r.ok) throw new Error("GitHub API " + r.status);
-    const c = await r.json();
-    const sha = c.sha.slice(0, 7);
-    const message = (c.commit?.message || "").split("\n")[0];
-    const date = c.commit?.author?.date ? new Date(c.commit.author.date).toLocaleString("vi-VN") : "";
-    commit.textContent = sha + " · " + message;
-    meta.textContent = date ? "Cập nhật " + date : "Đang ở commit mới nhất";
-  } catch (_) {
-    commit.textContent = "Shadow Terminal · main";
-    meta.textContent = "Không thể tải trạng thái commit lúc này";
-  }
-})();
+(async()=>{const commit=document.getElementById("commit"),meta=document.getElementById("commit-meta");try{const r=await fetch("https://api.github.com/repos/khahdihdz/shadow-terminal/commits/main",{headers:{"Accept":"application/vnd.github+json"}});if(!r.ok)throw new Error();const c=await r.json();commit.textContent=c.sha.slice(0,7)+" · "+(c.commit?.message||"").split("\n")[0];meta.textContent=c.commit?.author?.date?"Cập nhật "+new Date(c.commit.author.date).toLocaleString("vi-VN"):"Đang ở commit mới nhất"}catch(_){commit.textContent="Shadow Terminal · main";meta.textContent="Không thể tải trạng thái commit lúc này"}})();
 </script>
 </body>
 </html>
