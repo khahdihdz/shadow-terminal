@@ -35,6 +35,114 @@ CASES = [
  ],
  "conclusion":["Cuộc gọi 03:33 được tạo bởi một bộ phát tự động.","Mã 333 dẫn người điều tra qua ba khu vực.","Kẻ gọi không phải một nhân vật thật.","Vụ án #004 đã được giải."]
 }
+,{
+ "id":"case_005","title":"VỤ ÁN #005 — Hồ Sơ Người Vô Danh","target":"Xác định ai đã tạo hồ sơ vô danh trong hệ thống mô phỏng.","reward_xp":220,"reward_xu":440,"reward_rep":9,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Khu trung tâm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Khu trung tâm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Phố cổ với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Phố cổ để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #005 — Hồ Sơ Người Vô Danh đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_006","title":"VỤ ÁN #006 — Chuyến Hàng 00:17","target":"Lần theo tuyến của một chuyến hàng bí ẩn.","reward_xp":250,"reward_xu":500,"reward_rep":10,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Nhà kho bỏ hoang.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Ga tàu điện ngầm với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Ga tàu điện ngầm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Khu công nghiệp chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Khu công nghiệp để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #006 — Chuyến Hàng 00:17 đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_007","title":"VỤ ÁN #007 — Mật Mã ECHO-9","target":"Tìm nguồn của chuỗi mã ECHO-9.","reward_xp":280,"reward_xu":560,"reward_rep":11,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Phố cổ.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Phố cổ để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Nhà kho bỏ hoang với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #007 — Mật Mã ECHO-9 đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_008","title":"VỤ ÁN #008 — Bóng Người Trên Camera","target":"Giải thích hình ảnh bóng người xuất hiện trong dữ liệu camera giả lập.","reward_xp":310,"reward_xu":620,"reward_rep":12,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Ga tàu điện ngầm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Ga tàu điện ngầm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Nhà kho bỏ hoang với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #008 — Bóng Người Trên Camera đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_009","title":"VỤ ÁN #009 — Tài Khoản Raven-12","target":"Tìm nơi tài khoản Raven-12 kết thúc hoạt động.","reward_xp":340,"reward_xu":680,"reward_rep":13,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Khu trung tâm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Khu trung tâm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Khu công nghiệp với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Khu công nghiệp để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #009 — Tài Khoản Raven-12 đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_010","title":"VỤ ÁN #010 — Khoá 10:10","target":"Tìm ý nghĩa của mã thời gian 10:10.","reward_xp":370,"reward_xu":740,"reward_rep":14,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Phố cổ.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Phố cổ để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Nhà kho bỏ hoang với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #010 — Khoá 10:10 đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_011","title":"VỤ ÁN #011 — Đường Hầm Số 3","target":"Xác định mục đích của đường hầm số 3 trong thế giới mô phỏng.","reward_xp":400,"reward_xu":800,"reward_rep":15,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Ga tàu điện ngầm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Ga tàu điện ngầm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Phố cổ với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Phố cổ để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #011 — Đường Hầm Số 3 đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_012","title":"VỤ ÁN #012 — Người Gác Kho","target":"Xác định danh tính của Người Gác Kho trong dữ liệu mô phỏng.","reward_xp":430,"reward_xu":860,"reward_rep":16,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Nhà kho bỏ hoang.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Khu công nghiệp với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Khu công nghiệp để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #012 — Người Gác Kho đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_013","title":"VỤ ÁN #013 — Tín Hiệu Màu Xanh","target":"Lần theo tín hiệu BLUE-13.","reward_xp":460,"reward_xu":920,"reward_rep":17,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Khu trung tâm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Khu trung tâm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Phố cổ với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Phố cổ để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #013 — Tín Hiệu Màu Xanh đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_014","title":"VỤ ÁN #014 — Hồ Sơ Zero Day","target":"Tìm nguồn của hồ sơ ZERO-14.","reward_xp":500,"reward_xu":1000,"reward_rep":18,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Khu trung tâm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Khu trung tâm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Nhà kho bỏ hoang với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #014 — Hồ Sơ Zero Day đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_015","title":"VỤ ÁN #015 — Mảnh Ghép Cuối","target":"Ghép ba manh mối để xác định địa điểm cuối.","reward_xp":550,"reward_xu":1100,"reward_rep":20,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Ga tàu điện ngầm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Ga tàu điện ngầm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Nhà kho bỏ hoang với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Nhà kho bỏ hoang để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #015 — Mảnh Ghép Cuối đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+},
+{
+ "id":"case_016","title":"VỤ ÁN #016 — Shadow Protocol","target":"Phá án cuối và xác định mục đích của Shadow Protocol.","reward_xp":700,"reward_xu":1500,"reward_rep":25,
+ "clues":[
+  {"title":"MANH MỐI 01 — MÃ DẤU VẾT","text":["Một mã giả lập xuất hiện tại Khu trung tâm.","Dữ liệu hoàn toàn mô phỏng cho gameplay.","Suy luận: đây là điểm đầu của chuỗi điều tra."],"hint":"Kiểm tra Khu trung tâm để thu thập dữ kiện."},
+  {"title":"MANH MỐI 02 — DẤU VẾT THỨ HAI","text":["Một bản ghi giả lập nối Khu công nghiệp với vụ án.","Không có dữ liệu cá nhân hoặc hệ thống thật.","Suy luận: manh mối này xác nhận hướng điều tra."],"hint":"Kiểm tra Khu công nghiệp để thu thập dữ kiện."},
+  {"title":"MANH MỐI 03 — XÁC NHẬN CUỐI","text":["Terminal tại Căn cứ bí mật chứa bản ghi cuối cùng.","Tất cả dữ liệu chỉ phục vụ cốt truyện game.","Kết luận: vụ án có lời giải trong thế giới mô phỏng."],"hint":"Kiểm tra Căn cứ bí mật để thu thập dữ kiện."}
+ ],
+ "conclusion":["VỤ ÁN #016 — Shadow Protocol đã được giải.","Toàn bộ manh mối đều là dữ liệu gameplay giả lập.","Không có hệ thống thật nào được truy cập."]
+}
 ]\n\nclass Game:
     def __init__(self):
         self.player=None
