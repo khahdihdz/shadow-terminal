@@ -21,16 +21,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare Pages
+      - name: Validate Landing Page assets
         run: |
           set -e
           test -f docs/index.html
           test -f docs/style.css
-          test -f docs/og-image.svg
-          sudo apt-get update -qq
-          sudo apt-get install -y imagemagick
-          convert -background none docs/og-image.svg -resize 1200x630^ -gravity center -extent 1200x630 docs/og-image.png
-          file docs/og-image.png
+          test -f docs/og-image.jpg
+          file docs/og-image.jpg
+          echo "Using repository thumbnail: docs/og-image.jpg"
           echo "Deploying commit: $GITHUB_SHA"
 
       - name: Configure Pages
